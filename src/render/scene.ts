@@ -161,7 +161,7 @@ export function buildScene(code: string, params: RenderParams): Scene {
     timeline.charTimes,
     lineStarts,
     lineH,
-    contentH - vCenter,
+    contentH,
     padTop + vCenter,
   );
   timeline.scrollKeys = scrollKeys;

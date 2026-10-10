@@ -65,7 +65,8 @@ export function buildTimeline(code: string, opts: TimelineOptions): Timeline {
 }
 
 /**
- * 生成滚动关键帧：光标接近窗口底部 62% 高度时，平滑上滚让它保持在 62% 位置。
+ * 生成滚动关键帧：平时代码静止；当光标到达窗口底端边框时，
+ * 平滑上滚，让光标保持在距底边 0.8 行高处。
  * lineStarts / lineH / contentH 均为设计坐标（1080×1920 基准）。
  */
 export function buildScrollKeys(
@@ -77,7 +78,7 @@ export function buildScrollKeys(
   padTop: number,
 ): ScrollKey[] {
   const keys: ScrollKey[] = [];
-  const keepY = contentH * 0.62;
+  const keepY = Math.max(lineH, contentH - lineH * 0.8);
   let current = 0;
 
   for (let li = 1; li < lineStarts.length; li++) {
