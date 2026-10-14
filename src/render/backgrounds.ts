@@ -147,7 +147,7 @@ function drawAurora(ctx: CanvasRenderingContext2D, w: number, h: number, t: numb
 
 /* ---------------- 黑客矩阵代码雨 ---------------- */
 
-const MATRIX_CHARS = '01アイウエオカキクケコサシスセソ<>{}[]();=+-/*'.split('');
+const MATRIX_CHARS = '01'.split('');
 const MATRIX_COL_W = 26; // 设计坐标列宽
 
 const matrixCols = (() => {
